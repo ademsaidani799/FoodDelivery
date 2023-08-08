@@ -31,10 +31,7 @@ public class ClientService {
         this.clientRepository.deleteById(id);
     }
 
-    public void addClient(Long id, OrderEntity orderEntity){
-        Optional<Client> client = this.clientRepository.findById(id);
 
-    }
 
 
 }

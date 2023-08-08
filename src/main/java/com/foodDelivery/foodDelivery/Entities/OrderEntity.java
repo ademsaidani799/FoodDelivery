@@ -4,6 +4,9 @@ package com.foodDelivery.foodDelivery.Entities;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
+import java.util.Collection;
+import java.util.List;
+
 @Entity
 public class OrderEntity {
     @Id
@@ -19,7 +22,8 @@ public class OrderEntity {
     @JsonBackReference
     private Client client;
 
-
+    @OneToMany(mappedBy = "orderEntity", cascade = CascadeType.ALL)
+    private List<MenuItem> menuItems;
 
 
     // Constructors, getters, setters, etc.
@@ -55,4 +59,16 @@ public class OrderEntity {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public List<MenuItem> getMenuItems() {
+        return menuItems;
+    }
+
+    public void setMenuItems(List<MenuItem> menuItems) {
+        this.menuItems = menuItems;
+    }
+
+
+
+
 }
